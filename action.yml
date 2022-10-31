@@ -1,0 +1,9 @@
+name: 'Dagger Go SDK Multiarch Build'
+description: 'Use Dagger and Go in GitHub Actions for a multiarch build pipeline all in containers!'
+inputs:
+  go-proj-repo:  # id of input
+    description: 'Repo to build'
+    required: false
+runs:
+  using: 'node16'
+  main: 'index.js'
