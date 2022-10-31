@@ -7,17 +7,13 @@ import (
 	"path/filepath"
 
 	"dagger.io/dagger"
-	"github.com/sethvargo/go-githubactions"
 	"golang.org/x/sync/errgroup"
 )
 
 func main() {
 	repo := "https://github.com/kpenfound/greetings-api.git" // Default repo to build
-	repoGHA := githubactions.GetInput("go-proj-repo")
-	if len(os.Args) > 1 { // Optionally pass in a git repo as a command line argument
+	if len(os.Args) > 1 {                                   // Optionally pass in a git repo as a command line argument
 		repo = os.Args[1]
-	} else if repoGHA != "" {
-		repo = repoGHA
 	}
 	if err := build(repo); err != nil {
 		fmt.Println(err)
